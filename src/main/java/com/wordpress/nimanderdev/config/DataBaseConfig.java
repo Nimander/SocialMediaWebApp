@@ -12,7 +12,7 @@ public class DataBaseConfig {
 	@Bean
 	public DataSource dataSource(){
 		MysqlDataSource dataSource = new MysqlDataSource();
-		dataSource.setDatabaseName("classicmodels");
+		dataSource.setDatabaseName("socialmediawebapp");
 		dataSource.setServerName("192.168.56.101");
 		dataSource.setUser("root");
 		dataSource.setPassword("root");

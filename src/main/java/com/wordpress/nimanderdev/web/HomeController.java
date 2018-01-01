@@ -18,9 +18,6 @@ public class HomeController {
 
 	@GetMapping(value="/")
 	public String home(Model model){
-		int numberOfProducts = repository.getNumberOfProducts();
-		model.addAttribute("numberOfProducts", numberOfProducts);
-
 		List<Comment> comments = repository.getAllComments();
 		model.addAttribute("comments", comments);
 
