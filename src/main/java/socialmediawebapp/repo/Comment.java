@@ -1,4 +1,4 @@
-package com.wordpress.nimanderdev.repo;
+package socialmediawebapp.repo;
 
 public class Comment {
 	private String userName;

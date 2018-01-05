@@ -1,4 +1,4 @@
-package com.wordpress.nimanderdev.repo;
+package socialmediawebapp.repo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

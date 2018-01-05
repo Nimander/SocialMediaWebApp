@@ -1,4 +1,4 @@
-package com.wordpress.nimanderdev.config;
+package socialmediawebapp.config;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.context.annotation.Bean;

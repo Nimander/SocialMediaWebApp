@@ -1,4 +1,4 @@
-package com.wordpress.nimanderdev.config;
+package socialmediawebapp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.wordpress.nimanderdev.web", "com.wordpress.nimanderdev.config"})
+@ComponentScan(basePackages = {"socialmediawebapp.web", "socialmediawebapp.config"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public ViewResolver viewResolver(){

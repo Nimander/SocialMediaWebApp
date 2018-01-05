@@ -1,4 +1,4 @@
-package com.wordpress.nimanderdev.config;
+package socialmediawebapp.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -7,6 +7,6 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@ComponentScan(basePackages = {"com.wordpress.nimanderdev.web", "com.wordpress.nimanderdev.repo", "com.wordpress.nimanderdev.config"}, excludeFilters={@Filter(type= FilterType.ANNOTATION, value=EnableWebMvc.class)})
+@ComponentScan(basePackages = {"socialmediawebapp.web", "socialmediawebapp.repo", "socialmediawebapp.config"}, excludeFilters={@Filter(type= FilterType.ANNOTATION, value=EnableWebMvc.class)})
 public class RootConfig {
 }

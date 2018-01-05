@@ -1,7 +1,7 @@
-package com.wordpress.nimanderdev.web;
+package socialmediawebapp.web;
 
-import com.wordpress.nimanderdev.repo.Comment;
-import com.wordpress.nimanderdev.repo.CommentRepository;
+import socialmediawebapp.repo.Comment;
+import socialmediawebapp.repo.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

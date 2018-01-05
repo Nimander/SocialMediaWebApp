@@ -1,4 +1,4 @@
-package com.wordpress.nimanderdev.config;
+package socialmediawebapp.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

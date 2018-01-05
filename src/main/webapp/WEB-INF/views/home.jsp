@@ -12,8 +12,6 @@
 	${comments.message}<br/><br/>
 </c:forEach>
 
-
-
 <form method="POST">
 	username: <input type="text" name="userName"/><br/>
 	message: <textarea name="message" id="message" cols="30" rows="3"></textarea><br/>
