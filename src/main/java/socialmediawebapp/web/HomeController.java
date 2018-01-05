@@ -1,5 +1,7 @@
 package socialmediawebapp.web;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import socialmediawebapp.repo.Comment;
 import socialmediawebapp.repo.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -21,12 +24,20 @@ public class HomeController {
 		List<Comment> comments = repository.getAllComments();
 		model.addAttribute("comments", comments);
 
-		return "home";
+		if(getNameOfLoggedUser().equals("anonymousUser"))
+			return "home";
+		else
+			return "homeUserLogged";
 	}
 
 	@PostMapping(value="/")
-	public String home1(@RequestParam("userName") String userName, @RequestParam("message") String message){
-		repository.addNewCommentToDataBase(userName, message);
+	public String home1(@RequestParam("message") String message){
+		repository.addNewCommentToDataBase(getNameOfLoggedUser(), message);
 		return "redirect:/";
+	}
+
+	public String getNameOfLoggedUser(){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return auth.getName();
 	}
 }

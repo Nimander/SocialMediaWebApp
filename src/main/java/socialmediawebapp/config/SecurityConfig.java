@@ -1,5 +1,6 @@
 package socialmediawebapp.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,7 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.formLogin()
 				.loginPage("/login")
-				.permitAll();
+				.permitAll()
+				.defaultSuccessUrl("/", true);
 	}
 
 	@Override
@@ -28,4 +30,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.withUser("user").password("{noop}password").roles("USER").and()
 				.withUser("admin").password("{noop}password").roles("USER", "ADMIN");
 	}
+
 }

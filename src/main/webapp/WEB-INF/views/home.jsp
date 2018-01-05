@@ -12,10 +12,7 @@
 	${comments.message}<br/><br/>
 </c:forEach>
 
-<form method="POST">
-	username: <input type="text" name="userName"/><br/>
-	message: <textarea name="message" id="message" cols="30" rows="3"></textarea><br/>
-	<input type="submit" value="Wyslij"/>
-</form>
+
+<a href="/login">Zaloguj</a> się aby dodawać komentarze
 </body>
 </html>
