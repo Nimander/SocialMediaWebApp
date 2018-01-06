@@ -1,0 +1,16 @@
+.comment {
+    font-size: 12pt;
+}
+.timestamp{
+    font-size: 9pt;
+    font-style: italic;
+    white-space: normal;
+    display: inline-block;
+}
+.username{
+    font-size: 12pt;
+    font-weight: bold;
+    white-space: normal;
+    display: inline-block;
+
+}
