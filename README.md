@@ -1,2 +1,2 @@
 # SocialMediaWebApp
-Simple Social Media app build with Spring
+Simple Social Media app built with Spring
