@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -21,13 +20,8 @@ public class HomeController {
 
 	@GetMapping(value="/")
 	public String home(Model model){
-		List<Comment> comments = repository.getAllComments();
-		model.addAttribute("comments", comments);
-
-		if(getNameOfLoggedUser().equals("anonymousUser"))
-			return "home";
-		else
-			return "homeUserLogged";
+		model.addAttribute("comments", repository.getAllComments());
+		return "home";
 	}
 
 	@PostMapping(value="/")
@@ -36,7 +30,7 @@ public class HomeController {
 		return "redirect:/";
 	}
 
-	public String getNameOfLoggedUser(){
+	private String getNameOfLoggedUser(){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		return auth.getName();
 	}

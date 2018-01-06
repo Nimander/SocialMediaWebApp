@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<div th:if="${not #lists.isEmpty(comments)}">
+		<h2>Komentarze</h2>
+		<table class="commentpage">
+			<tr th:each="comment : ${comments}">
+				<div class="username" th:text="${comment.userName}"></div>
+				<div class="timestamp" th:text="${comment.timestamp}"></div>
+				<div class="comment" th:text="${comment.message}"></div>
+			</tr>
+		</table>
+	</div>
+
+	<form method="POST">
+			message: <textarea name="message" id="message" cols="30" rows="3"></textarea><br/>
+			<input type="submit" value="Wyslij"/>
+		</form>
+	<a th:href="@{/login}">login</a>
+</body>
+</html>

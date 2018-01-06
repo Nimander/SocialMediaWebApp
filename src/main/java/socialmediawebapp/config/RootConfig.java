@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@ComponentScan(basePackages = {"socialmediawebapp.web", "socialmediawebapp.repo", "socialmediawebapp.config"}, excludeFilters={@Filter(type= FilterType.ANNOTATION, value=EnableWebMvc.class)})
+@ComponentScan(basePackages = {"socialmediawebapp.web", "socialmediawebapp.repo", "socialmediawebapp.config"},
+		excludeFilters={@Filter(type= FilterType.ANNOTATION, value=EnableWebMvc.class)})
 public class RootConfig {
 }

@@ -9,21 +9,21 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@Configuration
-@EnableWebMvc
-@ComponentScan(basePackages = {"socialmediawebapp.web", "socialmediawebapp.config"})
-public class WebConfig extends WebMvcConfigurerAdapter {
-	@Bean
-	public ViewResolver viewResolver(){
-		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("WEB-INF/views/");
-		resolver.setSuffix(".jsp");
-		resolver.setViewClass(org.springframework.web.servlet.view.JstlView.class);
-		return resolver;
-	}
-
-	@Override
-	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();
-	}
-}
+//@Configuration
+//@EnableWebMvc
+//@ComponentScan(basePackages = {"socialmediawebapp.web", "socialmediawebapp.config"})
+//public class WebConfig extends WebMvcConfigurerAdapter {
+//	@Bean
+//	public ViewResolver viewResolver(){
+//		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+//		resolver.setPrefix("WEB-INF/views/");
+//		resolver.setSuffix(".jsp");
+//		resolver.setViewClass(org.springframework.web.servlet.view.JstlView.class);
+//		return resolver;
+//	}
+//
+//	@Override
+//	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+//		configurer.enable();
+//	}
+//}
