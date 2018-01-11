@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html
 		xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:th="http://thymeleaf.org"
@@ -18,10 +17,19 @@
 		</table>
 	</div>
 
-	<form method="POST">
+	<div sec:authorize="!isAuthenticated()">
+		<a th:href="@{/login}">Zaloguj sie</a>
+		aby dodac komentarz.
+		<a th:href="@{/register}">Zarejestruj sie</a>
+		jezeli nie posiadasz konta.
+	</div>
+	<div sec:authorize="hasRole('USER')">
+		<form method="POST">
 			message: <textarea name="message" id="message" cols="30" rows="3"></textarea><br/>
 			<input type="submit" value="Wyslij"/>
 		</form>
-	<a th:href="@{/login}">login</a>
+	</div>
+
+
 </body>
 </html>

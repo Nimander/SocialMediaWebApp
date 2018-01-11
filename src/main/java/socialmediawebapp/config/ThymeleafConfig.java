@@ -40,6 +40,7 @@ public class ThymeleafConfig extends WebMvcConfigurerAdapter implements Applicat
 		SpringTemplateEngine engine = new SpringTemplateEngine();
 		engine.setEnableSpringELCompiler(true);
 		engine.setTemplateResolver(templateResolver());
+		engine.addDialect(new SpringSecurityDialect());
 		return engine;
 	}
 
@@ -59,9 +60,5 @@ public class ThymeleafConfig extends WebMvcConfigurerAdapter implements Applicat
 				.addResourceLocations(
 						"classpath:/static/css/");
 
-	}
-	@Bean
-	public SpringSecurityDialect springSecurityDialect(){
-		return new SpringSecurityDialect();
 	}
 }
