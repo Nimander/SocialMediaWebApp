@@ -10,6 +10,12 @@ public class CommentRepository {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
+	public List<Comment> getCommentsFromProfile(String profile){
+		return jdbcTemplate.query("select username, message, created_at from comments where on_profile='"+profile+"'",
+				(rs, rowNum) -> new Comment(rs.getString("username"), rs.getString("message"), rs.getString("created_at"))
+		);
+	}
+
 	public int getNumberOfComments(){
 		return jdbcTemplate.queryForObject("select count(*) from comments", Integer.class);
 	}
@@ -20,8 +26,7 @@ public class CommentRepository {
 		);
 	}
 
-	public void addNewCommentToDataBase(String userName, String message){
-
-		jdbcTemplate.update("INSERT INTO comments(username, message) VALUES (?, ?)", userName, message);
+	public void addNewCommentToDataBase(String userName, String message, String profile){
+		jdbcTemplate.update("INSERT INTO comments(username, message, on_profile) VALUES (?, ?, ?)", userName, message, profile);
 	}
 }

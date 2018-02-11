@@ -15,17 +15,17 @@ public class HomeController {
 	@Autowired
 	private CommentRepository repository;
 
-	@GetMapping(value="/")
-	public String home(Model model){
-		model.addAttribute("comments", repository.getAllComments());
-		return "home";
-	}
+	//@GetMapping(value="/")
+	//public String home(Model model){
+	//	model.addAttribute("comments", repository.getAllComments());
+	//	return "home";
+	//}
 
-	@PostMapping(value="/")
-	public String home1(@RequestParam("message") String message){
-		repository.addNewCommentToDataBase(getNameOfLoggedUser(), message);
-		return "redirect:/";
-	}
+	//@PostMapping(value="/")
+	//public String home1(@RequestParam("message") String message){
+	//	repository.addNewCommentToDataBase(getNameOfLoggedUser(), message);
+	//	return "redirect:/";
+	//}
 
 	private String getNameOfLoggedUser(){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
