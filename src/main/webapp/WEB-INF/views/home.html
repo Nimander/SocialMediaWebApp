@@ -1,35 +1,18 @@
 <html
 		xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:th="http://thymeleaf.org"
-		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+		xmlns:th="http://thymeleaf.org">
+
 <head>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-	<div th:if="${not #lists.isEmpty(comments)}">
-		<h2>Komentarze</h2>
-		<table class="commentpage">
-			<tr th:each="comment : ${comments}">
-				<div class="username" th:text="${comment.userName}"></div>
-				<div class="timestamp" th:text="${comment.timestamp}"></div>
-				<div class="comment" th:text="${comment.message}"></div>
-			</tr>
-		</table>
-	</div>
-
-	<div sec:authorize="!isAuthenticated()">
-		<a th:href="@{/login}">Zaloguj sie</a>
-		aby dodac komentarz.
-		<a th:href="@{/register}">Zarejestruj sie</a>
-		jezeli nie posiadasz konta.
-	</div>
-	<div sec:authorize="hasRole('USER')">
-		<form method="POST">
-			message: <textarea name="message" id="message" cols="30" rows="3"></textarea><br/>
-			<input type="submit" value="Wyslij"/>
-		</form>
-	</div>
-
-
+<div th:if="${not #lists.isEmpty(users)}">
+	<h2>Zarejestrowani uzytkownicy</h2>
+	<table class="commentpage">
+		<tr th:each="user : ${users}">
+			<a th:href="@{'/user/' + ${user}}"><div class="usernameList" th:text="${user}"></div></a>
+		</tr>
+	</table>
+</div>
 </body>
 </html>

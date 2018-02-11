@@ -9,17 +9,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import socialmediawebapp.repo.CommentRepository;
+import socialmediawebapp.repo.UserRepository;
 
 @Controller
 public class HomeController {
 	@Autowired
-	private CommentRepository repository;
+	private CommentRepository commentRepository;
+	@Autowired
+	private UserRepository userRepository;
 
-	//@GetMapping(value="/")
-	//public String home(Model model){
-	//	model.addAttribute("comments", repository.getAllComments());
-	//	return "home";
-	//}
+	@GetMapping(value="/")
+	public String home(Model model){
+		model.addAttribute("users", userRepository.getUserNames());
+		return "home";
+	}
 
 	//@PostMapping(value="/")
 	//public String home1(@RequestParam("message") String message){
@@ -27,8 +30,8 @@ public class HomeController {
 	//	return "redirect:/";
 	//}
 
-	private String getNameOfLoggedUser(){
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		return auth.getName();
-	}
+	//private String getNameOfLoggedUser(){
+	//	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	//	return auth.getName();
+	//}
 }

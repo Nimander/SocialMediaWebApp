@@ -16,7 +16,7 @@ public class ProfileController {
 	@GetMapping("user/{profile}")
 	public String viewProfile(@PathVariable String profile, Model model){
 		model.addAttribute("comments", repository.getCommentsFromProfile(profile));
-		return "home";
+		return "profile";
 	}
 
 	@PostMapping("user/{profile}")

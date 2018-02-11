@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class UserRepository {
 	@Autowired
@@ -14,5 +16,7 @@ public class UserRepository {
 		jdbcTemplate.update("INSERT INTO user_roles(username, role) VALUES (?, ?)", username, "ROLE_USER");
 	}
 
-	
+	public List<String> getUserNames(){
+		return jdbcTemplate.queryForList("select username from users", String.class);
+	}
 }
